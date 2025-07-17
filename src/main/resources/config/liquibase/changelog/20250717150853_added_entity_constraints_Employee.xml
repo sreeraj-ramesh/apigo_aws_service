@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20250717150853-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="job_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__job_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="rel_employee__projects"
+                                 constraintName="fk_rel_employee__projects__employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="projects_id"
+                                 baseTableName="rel_employee__projects"
+                                 constraintName="fk_rel_employee__projects__projects_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"
+                                 />
+    </changeSet>
+</databaseChangeLog>
