@@ -1,0 +1,17 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "employeeApp",
+    "buildTool": "maven",
+    "clientFramework": "react",
+    "entities": ["Employee", "Department", "Job", "Address", "Project", "Task"],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "MTI4ZjNjZmQ3NmUxMmY3NjkwYWE3N2NmNTJmYzVmM2Y5NTE1OGJjYmYzMzFlMWYzYmI0M2Q1NGY0M2FhZDBkMDA0N2I3MDJjODc5MTdkYWYwMzlkZTc4MTY5MzE2NDkzMzAyMjYzOGI2ODVjNGFkODRjNzYxYmUyNmMwZDA1Mjc=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1752765233000,
+    "nativeLanguage": "en",
+    "packageName": "com.mycompany.employee",
+    "prodDatabaseType": "mysql"
+  }
+}

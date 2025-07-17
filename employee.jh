@@ -1,0 +1,80 @@
+application {
+  config {
+    baseName employeeApp
+    applicationType monolith
+    packageName com.mycompany.employee
+    authenticationType jwt
+    prodDatabaseType mysql
+    clientFramework react
+    buildTool maven
+    languages [en]
+    nativeLanguage en
+  }
+  entities *
+}
+
+entity Employee {
+  firstName String required
+  lastName String required
+  email String required
+  phoneNumber String
+  hireDate Instant required
+  salary BigDecimal
+}
+
+entity Department {
+  name String required
+  location String
+}
+
+entity Job {
+  title String required
+  minSalary BigDecimal
+  maxSalary BigDecimal
+}
+
+entity Address {
+  street String
+  city String
+  state String
+  country String
+  postalCode String
+}
+
+entity Project {
+  name String required
+  startDate Instant
+  endDate Instant
+}
+
+entity Task {
+  title String required
+  description String
+  dueDate Instant
+  status TaskStatus
+}
+
+enum TaskStatus {
+  PENDING,
+  IN_PROGRESS,
+  COMPLETED,
+  BLOCKED
+}
+
+relationship ManyToOne {
+  Employee{department(name)} to Department
+  Employee{job(title)} to Job
+  Employee{address(city)} to Address
+}
+
+relationship ManyToMany {
+  Employee{projects(name)} to Project{employees}
+}
+
+relationship OneToMany {
+  Project{tasks(title)} to Task{project(name)}
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pagination
